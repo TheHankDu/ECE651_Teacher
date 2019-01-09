@@ -1,0 +1,13 @@
+<!--pages/声明/声明.wxml-->
+<view class="doc-content">
+  <input placeholder="Announce:" bindinput='UserInput'></input>
+</view>
+<view class="hr"></view>
+
+<view>
+  <button formType='submit' class="submit" bindtap='Upload'>Upload</button> 
+</view>
+
+<view>
+  <button class="Home" ontap="Home">{{Home}}</button> 
+</view>

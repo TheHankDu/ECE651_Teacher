@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/用户中心/用户中心",
+    "pages/课程列表/课程列表",
+    "pages/签到/签到",
+    "pages/作业信息/作业信息",
+    "pages/作业内容/作业内容",
+    "pages/提交情况/提交情况",
+    "pages/上传课件/上传课件",
+    "pages/声明/声明"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#9E9E9E",
+    "navigationBarTitleText": "Jovial",
+    "navigationBarTextStyle": "black",
+    "navigationBarTextSize": "larger",
+    "backgroundColor": "#CDE000",
+    "onReachBottomDistance": "10px",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "backgroundColor": "white",
+    "selectedColor": "green",
+    "list": [
+      {
+        "pagePath": "pages/签到/签到",
+        "text": "签到",
+        "iconPath": "pages/images/tabbar/老师.png",
+        "selectedIconPath": "pages/images/tabbar/老师.png"
+      },
+      {
+        "pagePath": "pages/作业信息/作业信息",
+        "text": "作业信息",
+        "iconPath": "pages/images/tabbar/作业.png",
+        "selectedIconPath": "pages/images/tabbar/作业.png"
+      },
+      {
+        "pagePath": "pages/上传课件/上传课件",
+        "text": "上传课件",
+        "iconPath": "pages/images/tabbar/学生.png",
+        "selectedIconPath": "pages/images/tabbar/学生.png"
+      },
+      {
+        "pagePath": "pages/声明/声明",
+        "text": "声明",
+        "iconPath": "pages/images/tabbar/管理员.png",
+        "selectedIconPath": "pages/images/tabbar/管理员.png"
+      }
+    ]
+  }
+}
