@@ -1,0 +1,15 @@
+<!--pages/coursenote/cousrenote.wxml-->
+<view class="doc-title" wx:for="{{namelist}}">
+<image class="upload" style="width: 40px; height: 25px;" src="/pages/images/classnote/upload.png"  ontap="Upload"></image>
+  <text class="{{item.styleClass}}">{{item.str}}</text>
+</view>
+
+<view class="doc-content" wx:for="{{filelist}}">
+  <text class="{{item.styleClass}}" ontap="File">{{item.str}}</text>
+	<button class="edit" ontap="Edit">edit</button>	
+  <view class="hr"></view>
+</view>
+
+<view>
+  <button class="Home" ontap="Home">Return To Home</button>
+</view>
