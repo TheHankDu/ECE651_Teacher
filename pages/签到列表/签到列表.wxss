@@ -1,0 +1,29 @@
+/* pages/签到列表/签到列表.wxss */
+.doc-title{
+  font-weight: bold;
+  font-size: larger;
+  position: relative;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: center;
+  line-height: 25px;
+  color: #414141;
+}
+.list_title{
+  text-align: center;
+}
+.hr{
+  height: 3px;
+  width: 375px;
+  background-color: #d4d4d3; 
+  margin: 20px 5px;
+  margin-left: 0%;
+}
+.Home{
+  margin-top: 5%;
+  background-color: #f1da08;
+}
+.Create{
+  margin-bottom: 5%;
+  background-color: azure 
+}

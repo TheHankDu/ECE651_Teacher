@@ -9,7 +9,7 @@
   <view class="page_bd">
     <view class="section">
       <input type="text" bindinput="bindUsernameInput" placeholder="Username" auto-focus/>
-    </view>
+    </view> 
     <view class="section">
       <input type="password" bindinput="bindPasswordInput" placeholder="Password"/>
     </view>

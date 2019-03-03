@@ -9,12 +9,12 @@ Page({
   }, 
 
   course(event) {
-    console.log(event.currentTarget.dataset.course._id);
-    getApp().globalData.currentCourse = event.currentTarget.dataset.course._id;
+    console.log(event.currentTarget.dataset.course.course_id);
+    getApp().globalData.currentCourse = event.currentTarget.dataset.course.course_id;
     wx.switchTab({
-      url: '../../pages/签到/签到',
+      url: '../../pages/签到列表/签到列表',
       success: function () {
-        console.log(event.currentTarget.dataset.course._id);
+        console.log('成功');
       }
     });
   },
@@ -25,22 +25,21 @@ Page({
   onLoad: function (options) {
     var that = this
     const address = getApp().globalData.address
-    const tkn = getApp().globalData.token
     wx.request({
-      url: address + '/users' + '/getCourse',
+      url: address + '/course/search',
       method: "GET",
       header: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'x-access-token': tkn,
+        //'content-type': 'application/x-www-form-urlencoded',
+        'cookie': getApp().globalData.cookie
       },
       success: function (res) {
         var cl = that.data.classArray;
-        cl.push(res.data.data);
+        cl.push(res.data.courses);
         that.setData({
           classArray : cl[0]
         });
-        console.log(cl);
-        console.log(that.data.classArray);
+        // console.log(cl);
+        // console.log(that.data.classArray);
         console.log('---Successful---');
         console.log(res);
       },

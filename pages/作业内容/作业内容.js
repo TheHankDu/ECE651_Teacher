@@ -7,6 +7,8 @@ Page({
   data: {
     Home: "Return To Home",
     Input: "",
+    TitleInput:"",
+    Deadline : ""
   },
 
   Home: function () {
@@ -24,23 +26,35 @@ Page({
     })
   },
 
+  TitleInput: function (e) {
+    this.setData({
+      TitleInput: e.detail.value
+    })
+  },
+
+  DeadlineInput: function(e){
+    this.setData({
+      Deadline: e.detail.value
+    })
+  },
+
   Upload: function () {
     var that = this
     const address = getApp().globalData.address
-    const tkn = getApp().globalData.token
     console.log(this.data.Input)
     var courseid = getApp().globalData.currentCourse
-    var d = new Date("December 28, 2018 11:59:59")
     wx.request({
-      url: address + '/courses' + '/postAssignment',
+      url: address + '/course/homework/create',
       data: {
-        assignment: { title: "assignment1", content: this.data.Input, dueTime: "28 Dec, 2018"},
-        course: courseid
+        course_id: getApp().globalData.currentCourse,
+        title: this.data.TitleInput,
+        content: this.data.Input,
+        deadline: this.data.Deadline+"T23:59:59Z" 
       },
       method: "POST",
       header: {
         'content-type': 'application/x-www-form-urlencoded',
-        'x-access-token': tkn
+        'cookie': getApp().globalData.cookie
       },
       success: function (res) {
         console.log(res);
@@ -54,10 +68,40 @@ Page({
     })
   },
 
+  // toDate: function(days) {
+  //   var myDate = new Date();
+  //   var y = myDate.getFullYear();
+  //   var m = myDate.getMonth() + 1
+  //   console.log(m)
+  //   var t1 = Date.parse(m + "/28/" + y);
+  //   console.log(t1)
+  //   var t2 = Date.parse(m + 1 + "/1/" + y);
+  //   console.log(t2)
+  //   var thisMonthDays = 27 + (t2 - t1) / (60 * 60 * 24 * 1000);
+  //   console.log(thisMonthDays)
+  //   var nowDay = myDate.getDate();
+  //   var overDay = nowDay + days - thisMonthDays;
+  //   console.log(overDay)
+  //   if(overDay >= 0) {
+  //     m++;
+  //     nowDay = overDay;
+  //   } 
+  //   else {
+  //     nowDay++;
+  //   }
+  // if (m == 12) {
+  //   y++;
+  //   m = 1;
+  // }
+  // return(y + '-' + m + '-' + nowDay);
+  // },
+
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
     wx.setNavigationBarTitle({
       title: '作业内容'
     })

@@ -2,6 +2,7 @@
   "pages": [
     "pages/用户中心/用户中心",
     "pages/课程列表/课程列表",
+    "pages/签到列表/签到列表",
     "pages/签到/签到",
     "pages/作业信息/作业信息",
     "pages/作业内容/作业内容",
@@ -16,7 +17,7 @@
     "navigationBarTextStyle": "black",
     "navigationBarTextSize": "larger",
     "backgroundColor": "#CDE000",
-    "onReachBottomDistance": "10px",
+    "onReachBottomDistance": 10,
     "enablePullDownRefresh": true
   },
   "tabBar": {
@@ -24,8 +25,8 @@
     "selectedColor": "green",
     "list": [
       {
-        "pagePath": "pages/签到/签到",
-        "text": "签到",
+        "pagePath": "pages/签到列表/签到列表",
+        "text": "签到列表",
         "iconPath": "pages/images/tabbar/老师.png",
         "selectedIconPath": "pages/images/tabbar/老师.png"
       },

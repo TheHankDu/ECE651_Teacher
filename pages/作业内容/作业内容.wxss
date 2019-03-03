@@ -16,6 +16,14 @@
   color: #414141;
   font-weight: bold; 
 }
+.doc-tent{
+  position: relative;
+  margin: 10px 15px;
+  margin-bottom: 50px;
+  line-height: 25px;
+  color: #414141;
+  font-weight: bold; 
+}
 .hr{
   height: 3px;
   width: 375px;

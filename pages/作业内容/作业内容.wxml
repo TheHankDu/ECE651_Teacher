@@ -2,9 +2,16 @@
 <view class="doc-title">
   <text>Assignment</text>
 </view>
+
 <view class="hr"></view> 
-
-
+<view class="doc-tent">
+  <input placeholder="Title:" bindinput='TitleInput'></input>
+</view>
+<view class="hr"></view> 
+<view class="doc-tent">
+  <input placeholder="Deadline:yyyy-mm-dd" bindinput='DeadlineInput'></input>
+</view>
+<view class="hr"></view>  
 <view class="doc-content">
   <input placeholder="Description:" bindinput='UserInput'></input>
 </view>

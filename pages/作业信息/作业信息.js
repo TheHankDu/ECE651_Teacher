@@ -6,20 +6,7 @@ Page({
    */
   data: {
     Add: "Add-Assignment",
-    AssignmentArray: [
-      {
-        str: 'Assignment 1: 15-Submissions',
-        styleClass: 'list_title'
-      },
-      {
-        str: 'Assignment 2: 3-Submissions',
-        styleClass: 'list_title'
-      },
-      {
-        str: 'Assignment 3: 0-Submission',
-        styleClass: 'list_title'
-      }
-    ]
+    AssignmentArray: [] 
   },
 
   Add: function () {
@@ -53,6 +40,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
+    const address = getApp().globalData.address
+    wx.request({
+      url: address + '/course/homework/get_all',
+      method: 'GET',
+      data: {
+        course_id: getApp().globalData.currentCourse // 字符串，课程ID
+      },
+      header: {
+        //'content-type': 'application/x-www-form-urlencoded',
+        'cookie': getApp().globalData.cookie
+      },
+      success: function(res){
+        console.log(res)
+      }  
+    })
     wx.setNavigationBarTitle({
       title: '作业信息'
     })

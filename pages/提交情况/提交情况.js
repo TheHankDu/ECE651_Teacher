@@ -5,44 +5,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    SectionArray: [
-      {
-        str: '张三',
-        styleClass: 'list_title'
-      },
-      {
-        str: '李四',
-        styleClass: 'list_title'
-      },
-      {
-        str: '王五',
-        styleClass: 'list_title'
-      },
-      {
-        str: '赵六',
-        styleClass: 'list_title'
-      },
-      {
-        str: '钱七',
-        styleClass: 'list_title'
-      }
-    ],
-    AttendArray: [
-      { name: 'Attended', value: 'yes', checked: 'true' },
-      { name: 'Not Attended', value: 'no' }
-    ]
-  },
-
-  Edit: function (e) {
-    console.log('Edit Submission')
+    SectionArray: [],
+    AttendArray: []
   },
 
   save_status: function (e) {
     console.log('status saved')
   },
 
-  radioChange: function (e) {
-    console.log('radio发生change事件，携带value值为：', e.detail.value)
+  checkboxChange: function (e) {
+    console.log('checkbox 发生change事件，携带value值为：', e.detail)
   },
 
   Home: function () {
@@ -58,8 +30,30 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: '提交情况'
+    var that = this
+    const address = getApp().globalData.address
+    wx.request({
+      url: address + '/course/get_all_students',
+      data:{
+        course_id: getApp().globalData.currentCourse,
+      },
+      header:{
+        'cookie': getApp().globalData.cookie
+      },
+      method: "GET",
+      // header: {
+      //   'content-type': 'application/x-www-form-urlencoded',
+      // },
+      success: function (res){
+        console.log(res)
+        var secA = that.data.SectionArray
+        secA.push(res.data.users);
+        that.setData({
+          SectionArray: secA[0]
+        });
+        console.log(that.data.SectionArray)
+        
+      },
     })
   },
 
@@ -74,7 +68,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    wx.setNavigationBarTitle({
+      title: '提交情况'
+    })
   },
 
   /**

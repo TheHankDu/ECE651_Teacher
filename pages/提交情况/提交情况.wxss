@@ -20,7 +20,7 @@
   margin-left: 0%;
 }
 .Home{
-  margin-top: 10%;
+  margin-top: 10%; 
   background-color: #f1da08;
 }
 .Edit{
@@ -48,4 +48,16 @@
   background-color: #0178ff;
   color: white;
   font-size: large;
+}
+.Submit{ 
+  margin-bottom: 5%;
+  background-color: #b3ff01
+}
+.checkbox-group{
+  float: right;
+  margin-right: 5%;
+}
+.Save_status{
+  margin-top: 5%;
+  background-color: #23f108;
 }
