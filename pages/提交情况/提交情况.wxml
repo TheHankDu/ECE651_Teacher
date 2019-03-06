@@ -18,4 +18,4 @@
 <view>
   <button class = 'Save_status' bindtap="Save">Save</button>
   <button class="Home" ontap="Home">Return To Home</button>
-</view>   
+</view>    

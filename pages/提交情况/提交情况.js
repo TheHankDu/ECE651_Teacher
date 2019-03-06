@@ -6,7 +6,7 @@ Page({
    */
   data: {
     SectionArray: [],
-    AttendArray: []
+    AttendArray: [] 
   },
 
   save_status: function (e) {

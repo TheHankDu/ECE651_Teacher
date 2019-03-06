@@ -3,7 +3,7 @@ Page({
 
   /**
    * 页面的初始数据
-   */
+   */ 
   data: {
     Add: "Add-Assignment",
     AssignmentArray: [] 
@@ -18,7 +18,9 @@ Page({
     });
   },
 
-  View: function () {
+  View: function(event) {
+    console.log(event.currentTarget.dataset.assignment.id);
+    getApp().globalData.currentHomework = event.currentTarget.dataset.assignment.id;
     wx.navigateTo({
       url: '../../pages/提交情况/提交情况',
       success: function () {
@@ -46,14 +48,26 @@ Page({
       url: address + '/course/homework/get_all',
       method: 'GET',
       data: {
-        course_id: getApp().globalData.currentCourse // 字符串，课程ID
+        course_id: getApp().globalData.currentCourse
       },
       header: {
         //'content-type': 'application/x-www-form-urlencoded',
         'cookie': getApp().globalData.cookie
       },
       success: function(res){
-        console.log(res)
+        var AL = []
+        var getHomeworkLength = res.data.homeworks.length;
+        for (var i = 0; i < getHomeworkLength; i++){
+          if (res.data.homeworks[i].deadline.length > 10) {
+            res.data.homeworks[i].deadline = res.data.homeworks[i].deadline.substring(0, 10);
+          }
+        }
+        AL.push(res.data.homeworks)
+        console.log(AL)
+        that.setData({
+          AssignmentArray: AL[0]
+        })
+        console.log(that.data.AssignmentArray)
       }  
     })
     wx.setNavigationBarTitle({

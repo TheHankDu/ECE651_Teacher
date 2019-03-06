@@ -8,7 +8,7 @@ Page({
     ListArray: []
   },
 
-  Create: function(){
+  Create: function(){ 
     wx.navigateTo({
       url: '../../pages/签到/签到',
     })

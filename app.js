@@ -38,6 +38,7 @@ App({
     address: '',
     id: '',
     currentCourse: null,
+    currentHomework: null,
     user_id: null,
     checkin_id: null,
   }

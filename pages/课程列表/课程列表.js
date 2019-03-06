@@ -9,12 +9,12 @@ Page({
   }, 
 
   course(event) {
-    console.log(event.currentTarget.dataset.course.course_id);
+    console.log(event);
     getApp().globalData.currentCourse = event.currentTarget.dataset.course.course_id;
     wx.switchTab({
       url: '../../pages/签到列表/签到列表',
       success: function () {
-        console.log('成功');
+        console.log('成功'); 
       }
     });
   },
@@ -33,7 +33,7 @@ Page({
         'cookie': getApp().globalData.cookie
       },
       success: function (res) {
-        var cl = that.data.classArray;
+        var cl = [];
         cl.push(res.data.courses);
         that.setData({
           classArray : cl[0]
