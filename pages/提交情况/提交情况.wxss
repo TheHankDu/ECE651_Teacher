@@ -23,14 +23,14 @@
   margin-top: 10%; 
   background-color: #f1da08;
 }
-.Edit{
+.Submission_status{
   height: 30px;
   width: 75px;
   justify-content: center;
   display: flex;
   flex-direction: column;
   font-weight: bold; 
-  background-color: #2d7a40;
+  background-color: #34eb10;
   color: white;
   float: right;
   margin-right: 3%;
@@ -39,25 +39,7 @@
   float: right;
   margin-right: 5%;
 }
-.Save{
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-weight: bold;
-  background-color: #0178ff;
-  color: white;
-  font-size: large;
-}
-.Submit{ 
-  margin-bottom: 5%;
-  background-color: #b3ff01
-}
 .checkbox-group{
   float: right;
   margin-right: 5%;
-}
-.Save_status{
-  margin-top: 5%;
-  background-color: #23f108;
 }

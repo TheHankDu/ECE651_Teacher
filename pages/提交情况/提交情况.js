@@ -9,10 +9,6 @@ Page({
     AttendArray: [] 
   },
 
-  save_status: function (e) {
-    console.log('status saved')
-  },
-
   checkboxChange: function (e) {
     console.log('checkbox 发生change事件，携带value值为：', e.detail)
   },
@@ -38,12 +34,10 @@ Page({
         course_id: getApp().globalData.currentCourse,
       },
       header:{
+        //'content-type': 'application/x-www-form-urlencoded',
         'cookie': getApp().globalData.cookie
       },
       method: "GET",
-      // header: {
-      //   'content-type': 'application/x-www-form-urlencoded',
-      // },
       success: function (res){
         console.log(res)
         var secA = that.data.SectionArray
@@ -51,7 +45,22 @@ Page({
         that.setData({
           SectionArray: secA[0]
         });
-        console.log(that.data.SectionArray)
+        wx.request({
+          url: address + '/course/homework/submission/get_students',
+          data: {
+            course_id: getApp().globalData.currentCourse,
+            homework_id: getApp().globalData.currentHomework
+          },
+          header:{
+            //'content-type': 'application/x-www-form-urlencoded',
+            'cookie': getApp().globalData.cookie
+          },
+          method: "GET",
+          success: function(res){
+            console.log(res)
+          }
+        })
+        
         
       },
     })

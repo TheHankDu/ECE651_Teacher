@@ -9,13 +9,11 @@
               <checkbox value="true" checked=''/> 
             </label>
           </checkbox-group>
-        
+        <button class="Submission_status">OT</button>
       <view class="hr"></view>
-    </view>
-    <button form-type ="submit" class='Submit'>Submit</button> 
+    </view>   
   </form>
 </view>
 <view>
-  <button class = 'Save_status' bindtap="Save">Save</button>
   <button class="Home" ontap="Home">Return To Home</button>
 </view>    
