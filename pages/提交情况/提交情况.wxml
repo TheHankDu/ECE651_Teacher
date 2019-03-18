@@ -2,15 +2,21 @@
 <view>
     <form bindsubmit='formSubmit'>
     <view class="doc-title" wx:for="{{SectionArray}}"> 
-      <text class="{{item.styleClass}}" ontap="Section" >{{item.first_name}}{{item.last_name}}</text>
+
+      <text class="list_title" ontap="Section" >{{item.first_name}}{{item.last_name}}</text>
           
-          <checkbox-group name="{{item.user_id}}" class="checkbox-group" bindchange='checkboxChange'>
-            <label class="checkbox">
-              <checkbox value="true" checked=''/> 
-            </label>
-          </checkbox-group>
-        <button class="Submission_status">OT</button>
+          <view wx:if="{{ item.sub_status == 0 }}" class="block">
+            <button data-student="{{item}}" ontap="test" class="Submission_status">NA</button>
+          </view>
+          <view wx:elif="{{ item.sub_stauts == 1 }}" class="block">
+            <button data-student="{{item}}" ontap="test" class="Submission_status">OT</button>
+          </view>
+          <view wx:else="{{ item.sub_stauts == 2 }}" class="block">
+            <button data-student="{{item}}" ontap="test" class="Submission_status">DL</button>
+          </view>
+
       <view class="hr"></view>
+
     </view>   
   </form>
 </view>

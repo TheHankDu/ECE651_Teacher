@@ -8,6 +8,14 @@ Page({
     ListArray: []
   },
 
+  Section(event){
+    console.log(event.currentTarget.dataset.checkin.checkin_id);
+    getApp().globalData.checkin_id = event.currentTarget.dataset.checkin.checkin_id
+    wx.navigateTo({
+      url: '../../pages/签到记录/签到记录',
+    })
+  },
+
   Create: function(){ 
     wx.navigateTo({
       url: '../../pages/签到/签到',
@@ -18,7 +26,7 @@ Page({
     wx.navigateTo({
       url: '../../pages/课程列表/课程列表',
     });
-  },
+  }, 
 
   /**
    * 生命周期函数--监听页面加载
@@ -37,7 +45,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function () { 
     var that = this
     const address = getApp().globalData.address
     wx.request({

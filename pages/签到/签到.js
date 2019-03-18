@@ -10,7 +10,7 @@ Page({
   },
 
   bindtitleinput: function(e){ 
-    this.setData({
+    this.setData({ 
       title: e.detail.value
     })
   },

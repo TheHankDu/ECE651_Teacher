@@ -1,6 +1,6 @@
 <!--pages/作业信息/作业信息.wxml-->
 <view class="doc-title" wx:for="{{AssignmentArray}}">
-  <text class="{{item.styleClass}}" catchtap="View" data-assignment="{{item}}">{{item.title}} deadline: {{item.deadline}}</text>
+  <text class="list_title" catchtap="View" data-assignment="{{item}}">{{item.title}} deadline: {{item.deadline}}</text>
   <view class="hr"></view>
 </view>
 
@@ -14,4 +14,4 @@
 </view>
 
  
-  
+   

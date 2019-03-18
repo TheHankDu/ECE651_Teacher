@@ -7,9 +7,10 @@
   margin-left: 0%;
   line-height: 25px;
   color: #414141;
+  text-align: center
 }
 .list_title{
-  margin-left: 25px;
+  text-align: center
 }
 .hr{
   height: 3px;
@@ -25,3 +26,4 @@
 .Add{
   background-color: #1398f1
 }
+ 

@@ -2,7 +2,7 @@
 <view>
   <form bindsubmit = 'formSubmit' >
     <view class="doc-title" wx:for="{{ListArray}}"> 
-      <text class="list_title" ontap="Section">{{item.create_at}}</text>
+      <text class="list_title" catchtap="Section" data-checkin="{{item}}">{{item.create_at}}</text>
       <view class="hr"></view>
     </view>
   </form>
@@ -10,4 +10,4 @@
 <view> 
   <button class='Create' ontap = 'Create'>创建</button>
   <button class="Home" ontap="Home">Return To Home</button>
-</view>  
+</view>     
