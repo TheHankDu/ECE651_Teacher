@@ -14,7 +14,7 @@ Page({
     wx.switchTab({
       url: '../../pages/签到列表/签到列表',
       success: function () {
-        console.log('成功'); 
+        console.log('进入签到列表'); 
       }
     });
   },
@@ -23,39 +23,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this
-    const address = getApp().globalData.address
-    wx.request({
-      url: address + '/course/search',
-      method: "GET",
-      header: {
-        //'content-type': 'application/x-www-form-urlencoded',
-        'cookie': getApp().globalData.cookie
-      },
-      success: function (res) {
-        var cl = [];
-        cl.push(res.data.courses);
-        that.setData({
-          classArray : cl[0]
-        });
-        // console.log(cl);
-        // console.log(that.data.classArray);
-        console.log('---Successful---');
-        console.log(res);
-      },
-      fail: function (res) {
-        console.log('---Fail---');
-        console.log(res);
-      },
-      complete: function (res) {
-        console.log('---Complete---');
-      }
-    })
-
-    wx.setNavigationBarTitle({
-      title: '课程列表'
-    })
-
     
   },
 
@@ -70,6 +37,39 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var that = this
+    const address = getApp().globalData.address
+    wx.request({
+      url: address + '/course/search',
+      method: "GET",
+      header: {
+        //'content-type': 'application/x-www-form-urlencoded',
+        'cookie': getApp().globalData.cookie
+      },
+      success: function (res) {
+        var cl = [];
+        //cl.push(res.data.courses);
+        cl = res.data.courses
+        that.setData({
+          classArray: cl
+        });
+        // console.log(cl);
+        // console.log(that.data.classArray);
+        console.log('---课程列表加载成功---');
+        console.log(res);
+      },
+      fail: function (res) {
+        console.log('---Fail---');
+        console.log(res);
+      },
+      complete: function (res) {
+        console.log('---课程列表加载Complete---');
+      }
+    })
+
+    wx.setNavigationBarTitle({
+      title: '课程列表'
+    })
 
   },
 

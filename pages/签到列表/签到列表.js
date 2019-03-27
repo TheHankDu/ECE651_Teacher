@@ -7,7 +7,7 @@ Page({
   data: {
     ListArray: []
   },
-
+ 
   Section(event){
     console.log(event.currentTarget.dataset.checkin.checkin_id);
     getApp().globalData.checkin_id = event.currentTarget.dataset.checkin.checkin_id
@@ -60,20 +60,17 @@ Page({
       success: function (res) {
         console.log(res)
         var LA = []
-        console.log(LA)
-        console.log(that.data.ListArray)
         var getDateLength = res.data.info.length;
         for (var i = 0; i < getDateLength; i++) {
           if (res.data.info[i].create_at.length > 10) {
             res.data.info[i].create_at = res.data.info[i].create_at.substring(0, 10);
           }
         }
-        console.log(LA)
-        console.log(res.data.info)
-        LA.push(res.data.info);
+        //LA.push(res.data.info);
+        LA = res.data.info;
         console.log(LA)
         that.setData({
-          ListArray: LA[0],
+          ListArray: LA,
         });
 
       }

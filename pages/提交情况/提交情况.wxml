@@ -8,11 +8,14 @@
           <view wx:if="{{ item.sub_status == 0 }}" class="block">
             <button data-student="{{item}}" ontap="test" class="Submission_status">NA</button>
           </view>
-          <view wx:elif="{{ item.sub_stauts == 1 }}" class="block">
+          <view wx:elif="{{ item.sub_status == 1 }}" class="block">
             <button data-student="{{item}}" ontap="test" class="Submission_status">OT</button>
           </view>
-          <view wx:else="{{ item.sub_stauts == 2 }}" class="block">
+          <view wx:elif="{{ item.sub_status == 2 }}" class="block">
             <button data-student="{{item}}" ontap="test" class="Submission_status">DL</button>
+          </view>
+          <view wx:else class="block">
+            <text>Internal Error!</text>
           </view>
 
       <view class="hr"></view>

@@ -62,10 +62,10 @@ Page({
             res.data.homeworks[i].deadline = res.data.homeworks[i].deadline.substring(0, 10);
           }
         }
-        AL.push(res.data.homeworks)
-        console.log(AL)
+        //AL.push(res.data.homeworks)
+        AL = res.data.homeworks
         that.setData({
-          AssignmentArray: AL[0]
+          AssignmentArray: AL
         })
         console.log(that.data.AssignmentArray)
       }  

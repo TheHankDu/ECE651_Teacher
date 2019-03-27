@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/用户中心/用户中心",
+    "pages/ForgotPassword/ForgotPassword",
+    "pages/ChangePassword/ChangePassword",
     "pages/课程列表/课程列表",
     "pages/签到列表/签到列表",
     "pages/签到记录/签到记录",
@@ -8,6 +10,7 @@
     "pages/作业信息/作业信息",
     "pages/作业内容/作业内容",
     "pages/提交情况/提交情况",
+    "pages/学生作业/学生作业",
     "pages/上传课件/上传课件",
     "pages/声明/声明"
   ],

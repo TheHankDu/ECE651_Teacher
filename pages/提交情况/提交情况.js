@@ -24,6 +24,7 @@ Page({
   },
   test: function(event){
     console.log(event);
+    
   },
   /**
    * 生命周期函数--监听页面加载
@@ -42,17 +43,12 @@ Page({
       },
       method: "GET",
       success: function (res){
-        console.log(res)
-        var secA = []
-        secA.push(res.data.users);
+        var secA = res.data.users;
         var stu;
-        for(stu in secA[0]) {
-          secA[0][stu]['sub_status'] = 0;
+        for(stu in secA) {
+          secA[stu]['sub_status'] = 0;
+          secA[stu]['sub_id'] = null;
         }
-        console.log(secA[0]);
-        that.setData({
-          SectionArray: secA[0]
-        });
         wx.request({
           url: address + '/course/homework/submission/get_students',
           data: {
@@ -65,25 +61,31 @@ Page({
           },
           method: "GET",
           success: function(res){
+            console.log(res)
             var submitA = []
-            submitA.push(res.data.submissions);
+            submitA = res.data.submissions;
+            console.log(submitA)
             var sub_stu;
             var all_stu;
-            for (sub_stu in submitA[0]) {
-              for (all_stu in that.data.SectionArray) {
-                if (that.data.SectionArray[all_stu].user_id == submitA[0][tmp].student_info.user_id) {
+            for (sub_stu in submitA) {
+              for (all_stu in secA) {
+                if (secA[all_stu].user_id == submitA[sub_stu].student_info.user_id) {
+                  secA[all_stu]['sub_id'] = submitA[sub_stu].submission_id;
                   // find user that submit
-                  if (submitA[0][tmp].after_deadline == 0) {
+                  if (submitA[sub_stu].after_deadline == 0) {
                     // before deadline
-                    that.data.SectionArray[all_stu].sub_status = 1;
+                    secA[all_stu]['sub_status'] = 1;
                   } else {
                     // after deadline
-                    that.data.SectionArray[all_stu].sub_status = 2;
+                    secA[all_stu]['sub_status'] = 2;
                   }
                 }
               }
-              
             }
+            console.log(secA)
+            that.setData({
+              SectionArray: secA
+            });
           }
         })
         
